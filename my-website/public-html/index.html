@@ -3,14 +3,32 @@
   <header>
     <title>Hello, apache!</title>
     <style>
+      body{
+        max-width: 65em;
+        margin: 0px auto;
+      }
       .titlecard {
           font-family: Arial, sans-serif;
-          margin: 1em;
+          margin: 1.5em;
           margin-bottom: 2em;
       }
       article {
           font-family: Arial, sans-serif;
-          margin: 1em;
+          margin: 1.5em;
+      }
+      button {
+        border: none;
+        background-color: #CC74FF;
+        color: #FFF;
+        text-align: center;
+        display: inline-block;
+        cursor: pointer;
+        border-radius: 0.5em;
+        padding: 0.5em 1em;
+        margin: 1.5em;
+      }
+      .vault-button {
+        background-color: #000;
       }
     </style>
   </header>
@@ -26,5 +44,7 @@
       <p>Donec vulputate scelerisque ornare. Phasellus bibendum elit dolor, sit amet sagittis purus mattis ac. Proin aliquet pellentesque faucibus. Nunc vitae sapien a est tincidunt tincidunt. Curabitur nec mauris sit amet ex scelerisque sagittis et eget est. Proin consequat neque porttitor nulla vehicula pretium ut eu velit. Sed gravida auctor velit, ut lobortis eros rutrum nec. Sed efficitur varius tortor, quis suscipit enim pretium at. Mauris nec ex congue, hendrerit est elementum, feugiat nulla. Aliquam convallis felis sed enim tempor pulvinar a vel magna. Quisque auctor felis id leo tincidunt aliquam eget et risus. Praesent efficitur, nisl sit amet dictum tempor, lorem libero vehicula sapien, sit amet auctor nisi sem nec mauris. Suspendisse potenti.</p>
       <p>Sed sagittis ac justo et vestibulum. Nunc tortor purus, posuere eu sagittis id, consequat dignissim dolor. Donec hendrerit eleifend arcu nec congue. Mauris eu auctor neque. Nunc auctor nunc lacus, pellentesque porta metus mattis a. Donec sit amet sapien ultrices, eleifend tellus a, aliquet nunc. Ut et nibh purus. Nulla mattis accumsan purus in accumsan. Aenean interdum, dui et auctor vehicula, leo magna fermentum dui, et lacinia ipsum justo at ex. Mauris congue nisi sed erat aliquam bibendum. </p>
     </article>
+    <a href="http://localhost:8080/diary-credentials.html"><button>Secrets!</button></a>
+    <a href="http://localhost:8200"><button class="vault-button">Vault</button></a>
   </body>
 </html>

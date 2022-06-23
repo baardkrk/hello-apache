@@ -1,0 +1,5 @@
+my-app/conf/pyconf.json
+my-app/conf/pyvars.env
+my-website/public-html/diary-credentials.html
+vault-agent/*role_id
+vault-agent/*secret_id

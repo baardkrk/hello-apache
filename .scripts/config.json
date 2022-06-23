@@ -1,0 +1,9 @@
+{
+    "auth": "my-auth-method",
+    "mongodb": "thedatastore",
+    "fellowship": {
+        "hobbits": ["frodo", "sam", "merry", "pippin"],
+        "others": ["gandalf", "aragorn", "boromir", "legolas", "gimli"]
+    },
+    "extras": ["gollum"]
+}

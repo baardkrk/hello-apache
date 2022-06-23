@@ -1,0 +1,52 @@
+version: "3.8"
+
+services:
+  web:
+    container_name: "apache-demo"
+    depends_on:
+      - vault-agent
+    image: "httpd:2.4"
+    volumes:
+      - "./my-website/public-html:/usr/local/apache2/htdocs:ro"
+    ports:
+      - "8080:80"
+
+  serv:
+    container_name: "python-demo"
+    depends_on:
+      - vault-agent
+    build: "my-app/."
+    env_file:
+      - "my-app/conf/pyvars.env"
+    volumes:
+      - "./my-app/conf:/app/conf"
+
+  vault:
+    container_name: "vault-dev"
+    image: "hashicorp/vault:1.9.7"
+    ports:
+      - "8200:8200"
+    environment:
+      VAULT_DEV_ROOT_TOKEN_ID: "root"
+      VAULT_DEV_LISTEN_ADDRESS: "0.0.0.0:8200"
+    volumes:
+      - "/vault/data"
+      - "/etc/vault/logs"
+    cap_add:
+     - IPC_LOCK
+    entrypoint: "vault server -dev"
+
+  vault-agent:
+    container_name: "vault-agent"
+    image: "hashicorp/vault:1.9.7"
+    restart: unless-stopped
+    mem_limit: 200m
+    ports:
+      - "18200:8200"
+    volumes:
+      - "./vault-agent:/vault-agent:rw"
+      - "./my-app/conf:/app-conf:rw"
+      - "./my-website:/my-website:rw"
+    environment:
+      VAULT_ADDR: "http://vault-dev:8200"
+    entrypoint: "vault agent -log-level debug -config=/vault-agent/agent-config.hcl"
